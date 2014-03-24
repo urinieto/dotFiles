@@ -4,6 +4,5 @@
 # Except
 !.vimrc
 !.vim
-!.viminfo
 !.vimpdbrc
 !.gitignore

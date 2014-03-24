@@ -1,6 +1,6 @@
 " Oriol's titanic vim config file
 
-" Enable syntax highlighting
+" Enables highlight syntax
 syntax enable
 
 " Really cool colorscheme
@@ -16,17 +16,16 @@ set number
 " Use mouse (only for resizing uri!)
 set mouse=a
 
-" Reload vim whenever .vimrc is updated
-autocmd! bufwritepost .vimrc source %
-
 " Set the focus to the right screen (ok, no more mouse thingies)
 set mousefocus
 
 " Indent properly based on the current file
 filetype indent plugin on
 
-" Pathogen pluggin manager
-execute pathogen#infect()
+" Pathogen load
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
 
 " Set path to exuberant ctags
 let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
@@ -66,8 +65,23 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
-" Allows multiple buffers opened at a given time
-set hidden
+" Enable python folding with pymode
+"let g:pymode_folding = 1
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+" No folding when opening a file
+set foldlevelstart=20
+
+" Run ptyhon codes
+let g:pymode_run = 1
+let g:pymode_run_bind = '<leader>r'
+
+" Python lint
+let g:pymode_lint_on_fly = 0
+let g:pymode_lint_unmodified = 1
+let g:pymode_syntax = 1
+let g:pymode_lint_ignore = "E221,E203,E128,C901"
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many levels of undo
