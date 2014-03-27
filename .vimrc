@@ -8,7 +8,7 @@ colorscheme codeschool
 set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8
 
 " Display line numbers on the left
 set number
@@ -31,10 +31,7 @@ call pathogen#helptags()
 let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
 
 " Omnicompletion on
-set omnifunc=syntaxcomplete#Complete
-
-" Set a color column in column 80
-set colorcolumn=80
+"set omnifunc=syntaxcomplete#Complete
 
 " Open the Tag List by default
 autocmd VimEnter * TlistOpen
@@ -50,9 +47,6 @@ set guifont=Menlo:h10
 " Don't select first Omni-completion option
 set completeopt=longest,menuone
 
-" Update tags every time a python file is saved
-autocmd BufWritePost *.py :TlistUpdate
-
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
                   " allow backspacing over everything in insert mode
@@ -66,7 +60,6 @@ set shiftwidth=4
 set softtabstop=4
 
 " Enable python folding with pymode
-"let g:pymode_folding = 1
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
@@ -77,17 +70,54 @@ set foldlevelstart=20
 let g:pymode_run = 1
 let g:pymode_run_bind = '<leader>r'
 
-" Python lint
-let g:pymode_lint_on_fly = 0
-let g:pymode_lint_unmodified = 1
+" Python-mode
+" Activate rope
+" Keys:
+" K             Show python docs
+" <Ctrl-Space>  Rope autocomplete
+" <Ctrl-c>g     Rope goto definition
+" <Ctrl-c>d     Rope show documentation
+" <Ctrl-c>f     Rope find occurrences
+" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[            Jump on previous class or function (normal, visual, operator modes)
+" ]]            Jump on next class or function (normal, visual, operator modes)
+" [M            Jump on previous class or method (normal, visual, operator modes)
+" ]M            Jump on next class or method (normal, visual, operator modes)
+let g:pymode_rope = 1
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+
+" syntax highlighting
 let g:pymode_syntax = 1
-let g:pymode_lint_ignore = "E221,E203,E128,C901"
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_lint_ignore = "E221,E128,C901,W0404"
+
+" Don't autofold code
+let g:pymode_folding = 1
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many levels of undo
 
 " Tabs in command line mode behave like bash
-set wildmode=list,full
+set wildmode=longest,list,full
+set wildmenu
 
 " Highlight the entire word when searching for it
 set hlsearch
