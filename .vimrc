@@ -1,7 +1,7 @@
 " Oriol's titanic vim config file
-
 " Enables highlight syntax
 syntax enable
+set nofoldenable
 
 " Really cool colorscheme
 colorscheme codeschool
@@ -42,7 +42,7 @@ set guioptions-=r
 set guioptions-=L
 
 " Change default fontsize to fit MacBook Pro 13'
-set guifont=Menlo:h10
+set guifont=Monaco:h10
 
 " Don't select first Omni-completion option
 set completeopt=longest,menuone
@@ -59,19 +59,25 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
-" Enable python folding with pymode
+" Always set the current file directory as the local current directory
+autocmd BufEnter * silent! lcd %:p:h
+
+" Enable folding
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-" No folding when opening a file
-set foldlevelstart=20
+" Save foldings
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" No folding when opening a file (99 = no closed folds)
+"set foldlevelstart=99
 
 " Run ptyhon codes
 let g:pymode_run = 1
 let g:pymode_run_bind = '<leader>r'
 
 " Python-mode
-" Activate rope
 " Keys:
 " K             Show python docs
 " <Ctrl-Space>  Rope autocomplete
@@ -83,7 +89,7 @@ let g:pymode_run_bind = '<leader>r'
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 1
+let g:pymode_rope = 0 " Using Jedi instead
 
 " Documentation
 let g:pymode_doc = 1
@@ -107,10 +113,7 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_lint_ignore = "E221,E128,C901,W0404"
-
-" Don't autofold code
-let g:pymode_folding = 1
+let g:pymode_lint_ignore = "E221,E128,C901,W0404,E702,E203"
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many levels of undo
@@ -141,3 +144,18 @@ set hlsearch
 "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
+
+let g:Tex_FoldedSections="part,chapter,section"
+let g:Tex_FoldedEnvironments=''
+let g:Tex_Folding=0
+let Tex_FoldedSections=''
+let Tex_FoldedEnvironments=''
+let Tex_FoldedMisc=''
+
+" Do not fold too much
+let g:Tex_FoldedSections=''
+let g:Tex_FoldedEnvironments=''
+let g:Tex_Folding=0
+let Tex_FoldedSections=''
+let Tex_FoldedEnvironments=''
+let Tex_FoldedMisc=''

@@ -7,4 +7,8 @@ set sw=2
 set iskeyword+=:
 
 " Activate spellchecker
-set spell spelllang=en_us 
+set spell spelllang=en_us
+
+" Fuck folding
+au BufRead * normal zR
+au BufWinEnter * normal zR
