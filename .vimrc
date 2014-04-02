@@ -10,10 +10,10 @@ set background=dark
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 
-" Display line numbers on the left
+"" Display line numbers on the left
 set number
 
-" Use mouse (only for resizing uri!)
+"" Use mouse (only for resizing uri!)
 set mouse=a
 
 " Set the focus to the right screen (ok, no more mouse thingies)
@@ -23,7 +23,7 @@ set mousefocus
 filetype indent plugin on
 
 " Pathogen load
-filetype off
+"filetype off " Makes syntax non-working on office box
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -67,8 +67,8 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Save foldings
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
 
 " No folding when opening a file (99 = no closed folds)
 "set foldlevelstart=99

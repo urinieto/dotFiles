@@ -67,3 +67,5 @@ datasets
 java.log.323
 license.lic
 matlab_crash_dump.323-1
+tags
+*.pyc
