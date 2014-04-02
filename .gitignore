@@ -42,3 +42,28 @@ Public/
 Sites/
 datasets/
 .vim/view/
+
+# From the office box:
+.anyconnect
+.apdisk
+.bash_profile.pysave
+.cvspass
+.d5w2rc
+.dvdcss/
+.fontconfig/
+.gdb_history
+.hgrc
+.idlerc/
+.inputrc
+.local/
+.lush/
+.music21rc
+.octave_hist
+.profile
+.profile.pysave
+Courses/
+Wine Files/
+datasets
+java.log.323
+license.lic
+matlab_crash_dump.323-1
