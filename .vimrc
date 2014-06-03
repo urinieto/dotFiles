@@ -16,14 +16,38 @@ set number
 " Use mouse (only for resizing uri!)
 set mouse=a
 
-" Set the focus to the right screen (ok, no more mouse thingies)
+" Set the focus to the correct screen (ok, no more mouse thingies)
 set mousefocus
+
+" No more annoying sounds
+set visualbell
+
+" Do not scroll sideways unless we reach the end of the screen
+set sidescrolloff=0
+
+" highlight the status bar when in insert mode
+if version >= 700
+    if has("gui_running")
+        au InsertEnter * hi StatusLine guifg=black guibg=green
+        au InsertLeave * hi StatusLine guibg=black guifg=grey
+    else
+        au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+        au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+    endif
+endif
+
+" Infere the case-sensitivity
+set infercase
+
+" Need to set this flag on in order to have many cool features on
+set nocompatible
 
 " Indent properly based on the current file
 filetype indent plugin on
+filetype plugin on
 
 " Pathogen load
-filetype off
+"filetype off " Necessary?
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -34,8 +58,12 @@ let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
 "set omnifunc=syntaxcomplete#Complete
 
 " Open the Tag List by default
-autocmd VimEnter * TlistOpen
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * TlistOpen
+"autocmd VimEnter * wincmd p
+
+" Switch between files in buffer
+nnoremap <C-Tab> :bn<CR>
+nnoremap <C-S-Tab> :bp<CR>
 
 " Remove scroll bar of the gui
 set guioptions-=r
@@ -46,6 +74,7 @@ set guifont=Monaco:h10
 
 " Don't select first Omni-completion option
 set completeopt=longest,menuone
+"set completeopt=menuone,longest,preview
 
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
@@ -90,6 +119,7 @@ let g:pymode_run_bind = '<leader>r'
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
 let g:pymode_rope = 0 " Using Jedi instead
+au BufWriteCmd *.py write || :PymodeLint " This fixes the pylint bug
 
 " Documentation
 let g:pymode_doc = 1
@@ -159,3 +189,14 @@ let g:Tex_Folding=0
 let Tex_FoldedSections=''
 let Tex_FoldedEnvironments=''
 let Tex_FoldedMisc=''
+
+
+" makes * and # work on visual mode too.
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>

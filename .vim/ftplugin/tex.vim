@@ -12,3 +12,21 @@ set spell spelllang=en_us
 " Fuck folding
 au BufRead * normal zR
 au BufWinEnter * normal zR
+
+" Do not add the weird jumping syntax
+let g:Imap_UsePlaceHolders = 0
+
+" Compile every time I save
+"au BufWritePost *.tex :make %
+"au BufWritePost *.tex :'.
+"au BufWritePost *.tex :!open /Applications/Preview.app/
+
+" Remove guide column
+set colorcolumn=0
+
+" For some reason this line makes the compilation of bibtex work
+let g:Tex_MultipleCompileFormats='dvi,pdf'
+let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode -file-line-error-style $*'
+
+set wrap
+set textwidth=0

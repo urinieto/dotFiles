@@ -7,3 +7,7 @@ autocmd BufWritePost *.py :TlistUpdate
 " Don't autofold code
 let g:pymode_folding = 1
 
+" Do not show all the possibilities (this way is faster and it doesn't select
+" the first option automatically)
+let g:jedi#popup_on_dot = 0
+
