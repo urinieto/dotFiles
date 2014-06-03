@@ -10,10 +10,10 @@ set background=dark
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 
-" Display line numbers on the left
+"" Display line numbers on the left
 set number
 
-" Use mouse (only for resizing uri!)
+"" Use mouse (only for resizing uri!)
 set mouse=a
 
 " Set the focus to the correct screen (ok, no more mouse thingies)
@@ -25,29 +25,30 @@ set visualbell
 " Do not scroll sideways unless we reach the end of the screen
 set sidescrolloff=0
 
-" highlight the status bar when in insert mode
-if version >= 700
-    if has("gui_running")
-        au InsertEnter * hi StatusLine guifg=black guibg=green
-        au InsertLeave * hi StatusLine guibg=black guifg=grey
-    else
-        au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-        au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+    " highlight the status bar when in insert mode
+    if version >= 700
+        if has("gui_running")
+            au InsertEnter * hi StatusLine guifg=black guibg=green
+            au InsertLeave * hi StatusLine guibg=black guifg=grey
+        else
+            au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+            au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+        endif
     endif
-endif
 
-" Infere the case-sensitivity
-set infercase
+    " Infere the case-sensitivity
+    set infercase
 
-" Need to set this flag on in order to have many cool features on
-set nocompatible
+    " Need to set this flag on in order to have many cool features on
+    set nocompatible
 
-" Indent properly based on the current file
-filetype indent plugin on
-filetype plugin on
+    " Indent properly based on the current file
+    filetype indent plugin on
+    filetype plugin on
 
-" Pathogen load
-"filetype off " Necessary?
+    " Pathogen load
+
+"filetype off " Makes syntax non-working on office box
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -96,8 +97,8 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Save foldings
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
 
 " No folding when opening a file (99 = no closed folds)
 "set foldlevelstart=99
