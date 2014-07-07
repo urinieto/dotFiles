@@ -48,6 +48,10 @@ set sidescrolloff=0
 
     " Pathogen load
 
+" Let vim know that cls files are LaTeX classes
+au BufNewFile,BufRead *.cls set filetype=tex
+au BufNewFile,BufRead *.tex set filetype=tex
+
 "filetype off " Makes syntax non-working on office box
 call pathogen#infect()
 call pathogen#helptags()
@@ -71,7 +75,7 @@ set guioptions-=r
 set guioptions-=L
 
 " Change default fontsize to fit MacBook Pro 13'
-set guifont=Monaco:h10
+set guifont=Monaco:h11
 
 " Don't select first Omni-completion option
 set completeopt=longest,menuone
@@ -201,3 +205,13 @@ function! s:VSetSearch(cmdtype)
 endfunction
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+" Move line by line even when the line is wrapped
+map j gj
+map k gk
+
+" Persistent undo
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo

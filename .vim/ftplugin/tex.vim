@@ -30,3 +30,6 @@ let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=no
 
 set wrap
 set textwidth=0
+
+" Do not jump to error/warnings when compiling (but populate the quickfix list)
+let g:Tex_GotoError=0
