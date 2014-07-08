@@ -20,7 +20,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 #PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
 #export PATH
 
-export PYTHONPATH=${PYTHONPATH}:${HOME}/Dropbox/NYU/Dissertation/:${HOME}/NYU/Dissertation/
+export PYTHONPATH=${PYTHONPATH}:${HOME}/NYU/Dissertation/
 
 if [ -f ~/.bashrc ]; then
 	   source ~/.bashrc
