@@ -10,4 +10,6 @@ let g:pymode_folding = 1
 " Do not show all the possibilities (this way is faster and it doesn't select
 " the first option automatically)
 let g:jedi#popup_on_dot = 0
+let g:pymode_rope = 0 " Using Jedi instead
+let g:pymode_doc = 0 " Using Jedi instead
 
