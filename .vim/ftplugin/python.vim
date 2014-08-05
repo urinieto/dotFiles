@@ -13,3 +13,4 @@ let g:jedi#popup_on_dot = 0
 let g:pymode_rope = 0 " Using Jedi instead
 let g:pymode_doc = 0 " Using Jedi instead
 
+let g:pymode_lint_ignore = "E265,E128,E251,E221"
