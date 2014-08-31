@@ -108,7 +108,7 @@ vnoremap <Space> zf
 "set foldlevelstart=99
 
 " Run ptyhon codes
-let g:pymode_run = 1
+"let g:pymode_run = 1
 "let g:pymode_run_bind = '<leader>r'
 
 " Python-mode
@@ -123,31 +123,31 @@ let g:pymode_run = 1
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-au BufWriteCmd *.py write || :PymodeLint " This fixes the pylint bug
+"au BufWriteCmd *.py write || :PymodeLint " This fixes the pylint bug
 
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
+"" Documentation
+"let g:pymode_doc = 1
+"let g:pymode_doc_key = 'K'
 
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-" Auto check on save
-let g:pymode_lint_write = 1
+""Linting
+"let g:pymode_lint = 1
+"let g:pymode_lint_checker = "pyflakes,pep8"
+"" Auto check on save
+"let g:pymode_lint_write = 1
 
-" Support virtualenv
-let g:pymode_virtualenv = 1
+"" Support virtualenv
+"let g:pymode_virtualenv = 1
 
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
+"" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_key = '<leader>b'
 
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_lint_ignore = "E221,E128,C901,W0404,E702,E203"
+"" syntax highlighting
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"let g:pymode_lint_ignore = "E221,E128,C901,W0404,E702,E203"
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many levels of undo
@@ -214,3 +214,7 @@ set undofile                " Save undo's after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
