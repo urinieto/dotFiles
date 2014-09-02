@@ -36,9 +36,7 @@ import ycm_core
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
 '-Wall',
-'-Wextra',
 '-Werror',
-'-Wc++98-compat',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
@@ -52,13 +50,14 @@ flags = [
 # a "-std=<something>".
 # For a C project, you would set this to something like 'c99' instead of
 # 'c++11'.
-'-std=c++11',
+#'-std=c++11',
+'-std=c99',
 # ...and the same thing goes for the magic -x option which specifies the
 # language that the files to be compiled are written in. This is mostly
 # relevant for c++ headers.
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
-'c++',
+'c',
 '-isystem',
 '../BoostParts',
 '-isystem',
@@ -183,7 +182,8 @@ def FlagsForFile( filename, **kwargs ):
     # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
     # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
     try:
-      final_flags.remove( '-stdlib=libc++' )
+      #final_flags.remove( '-stdlib=libc++' )
+      final_flags.remove( '-stdlib=libc' )
     except ValueError:
       pass
   else:

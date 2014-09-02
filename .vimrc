@@ -3,7 +3,7 @@
 syntax enable
 set nofoldenable
 
-" Really cool colorscheme
+" Sweet colorscheme
 colorscheme codeschool
 set background=dark
 
@@ -25,39 +25,38 @@ set visualbell
 " Do not scroll sideways unless we reach the end of the screen
 set sidescrolloff=0
 
-    " highlight the status bar when in insert mode
-    if version >= 700
-        if has("gui_running")
-            au InsertEnter * hi StatusLine guifg=black guibg=green
-            au InsertLeave * hi StatusLine guibg=black guifg=grey
-        else
-            au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-            au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
-        endif
+" highlight the status bar when in insert mode
+if version >= 700
+    if has("gui_running")
+        au InsertEnter * hi StatusLine guifg=black guibg=green
+        au InsertLeave * hi StatusLine guibg=black guifg=grey
+    else
+        au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+        au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
     endif
+endif
 
-    " Infere the case-sensitivity
-    set infercase
+" Infere the case-sensitivity
+set infercase
 
-    " Need to set this flag on in order to have many cool features on
-    set nocompatible
+" Need to set this flag on in order to have many cool features on
+set nocompatible
 
-    " Indent properly based on the current file
-    filetype indent plugin on
-    filetype plugin on
-
-    " Pathogen load
+" Indent properly based on the current file
+filetype indent plugin on
+filetype plugin on
 
 " Let vim know that cls files are LaTeX classes
 au BufNewFile,BufRead *.cls set filetype=tex
 au BufNewFile,BufRead *.tex set filetype=tex
 
+" Pathogen load
 "filetype off " Makes syntax non-working on office box
 call pathogen#infect()
 call pathogen#helptags()
 
 " Set path to exuberant ctags
-let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
+"let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
 
 " Omnicompletion on
 "set omnifunc=syntaxcomplete#Complete
@@ -193,7 +192,6 @@ let g:Tex_Folding=0
 let Tex_FoldedSections=''
 let Tex_FoldedEnvironments=''
 let Tex_FoldedMisc=''
-
 
 " makes * and # work on visual mode too.
 function! s:VSetSearch(cmdtype)

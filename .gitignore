@@ -69,3 +69,5 @@ license.lic
 matlab_crash_dump.323-1
 Applications
 Google Drive
+.vim/undo/*
+*.pyc
