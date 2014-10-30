@@ -130,8 +130,9 @@ Ubuntu Linux x64 super-quick installation
 Please refer to the full Installation Guide below; the following commands are
 provided on a best-effort basis and may not work for you.
 
-Make sure you have Vim 7.3.584 with python2 support. At the time of writing, the
-version of Vim shipping with Ubuntu is too old. You may need to [compile Vim
+Make sure you have Vim 7.3.584 with python2 support. Ubuntu 14.04 and later have
+a Vim that's recent enough. You can see the version of Vim installed by running
+`vim --version`. If the version is too old, you may need to [compile Vim
 from source][vim-build] (don't worry, it's easy).
 
 Install YouCompleteMe with [Vundle][].
@@ -220,7 +221,7 @@ process.
     **Download the latest version of `libclang`**. Clang is an open-source
     compiler that can compile C/C++/Objective-C/Objective-C++. The `libclang`
     library it provides is used to power the YCM semantic completion engine for
-    those languages. YCM is designed to work with libclang version 3.4 or
+    those languages. YCM is designed to work with libclang version 3.5 or
     higher, but can in theory work with any 3.2+ version as well.
 
     You can use the system libclang _only if you are sure it is version 3.3 or
@@ -849,9 +850,12 @@ that filetype.
 
 You can get the filetype of the current file in Vim with `:set ft?`.
 
-Default: `{}`
+Default: `[see next line]`
 
-    let g:ycm_filetype_specific_completion_to_disable = {}
+    let g:ycm_filetype_specific_completion_to_disable = {
+          \ 'gitcommit': 1
+          \}
+
 
 ### The `g:ycm_show_diagnostics_ui` option
 
@@ -1324,6 +1328,10 @@ Example:
 * As the first rule takes precedence everything in the home directory excluding
   the `~/dev` directory will be blacklisted.
 
+NOTE: The glob pattern is first expanded with Python's `os.path.expanduser()`
+and then resolved with `os.path.abspath()` before being matched against the
+filename.
+
 Default: `[]`
 
     let g:ycm_extra_conf_globlist = []
@@ -1409,6 +1417,7 @@ be switched (when buffer is modified and `nohidden` option is set),
 then result will be opened in horizontal split.
 
 Default: `'same-buffer'`
+
     let g:ycm_goto_buffer_command = 'same-buffer'
 
 FAQ

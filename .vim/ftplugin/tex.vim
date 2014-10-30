@@ -33,3 +33,13 @@ set textwidth=0
 
 " Do not jump to error/warnings when compiling (but populate the quickfix list)
 let g:Tex_GotoError=0
+
+" Do not fold too much
+let g:Tex_FoldedSections="part,chapter,section"
+let g:Tex_FoldedSections=''
+let g:Tex_FoldedEnvironments=''
+let g:Tex_Folding=0
+let Tex_FoldedSections=''
+let Tex_FoldedEnvironments=''
+let Tex_FoldedMisc=''
+
