@@ -430,6 +430,30 @@ complete -f -o default -X '!*.pl'  perl perl5
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
 
+# Playmidi using fluidsynth
+function playmidi {
+
+    SOUNDFONT='/usr/local/Cellar/fluid-synth/1.1.6/generaluser.v.1.44.sf2'
+
+    if [ -e "$SOUNDFONT" ]
+    then 
+
+        for i in "$@"
+        do 
+            if [ -e "$i" ]
+            then
+                (fluidsynth -i "$SOUNDFONT" "$i"  2>&1) >/dev/null
+            else
+                echo "[playmidi]: cannot find file at $i"   
+                return 1
+            fi  
+        done 
+    else
+            echo "[playmidi]: SOUNDFONT file not found at $SOUNDFONT"
+            return 1
+    fi  
+}
+
 # Local Variables:
 # mode:shell-script
 # sh-shell:bash

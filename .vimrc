@@ -80,6 +80,7 @@ set guioptions-=L
 set guifont=Monaco:h11
 
 " Don't select first Omni-completion option
+set completeopt=preview,menuone
 "set completeopt=longest,menuone
 "set completeopt=menuone,longest,preview
 
@@ -146,3 +147,21 @@ set undoreload=10000        " number of lines to save for undo
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_custom_enable = 1
+
+" Setup Clang Library
+let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+    let g:clang_library_path=s:clang_library_path
+endif
+
+let g:clang_use_library=1
+let g:clang_auto_select=0 "select first entry in popup menu but don't insert in code
+let g:clang_complete_auto=1 "auto complete after -> . and ::
+let g:clang_complete_copen=0 "open quick fix on error
+let g:clang_complete_hl_errors=1 " highlight errors and warnings
+let g:clang_periodic_quickfix=1 " update quickfix periodically
+let g:clang_trailing_placeholder=1 " add trailing placeholder after function
+let g:clang_close_preview=1 " close preview window after completion
+let g:clang_snippets=1 " some magic after function ( or ,
+let g:clang_debug=0
