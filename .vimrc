@@ -53,6 +53,9 @@ au BufNewFile,BufRead *.tex set filetype=tex
 " set text file type
 au BufRead,BufNewFile *.txt setfiletype text
 
+" set Objective-C file type
+au BufRead,BufNewFile *.mm setfiletype c
+
 " Pathogen load
 "filetype off " Makes syntax non-working on office box
 call pathogen#infect()
@@ -145,9 +148,9 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_custom_enable = 1
+"let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
+"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_custom_enable = 1
 
 " Setup Clang Library
 let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
