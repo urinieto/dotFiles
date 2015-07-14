@@ -53,6 +53,9 @@ au BufNewFile,BufRead *.tex set filetype=tex
 " set text file type
 au BufRead,BufNewFile *.txt setfiletype text
 
+" set XML file type
+au BufRead,BufNewFile *.wwu setfiletype xml
+
 " set Objective-C file type
 au BufRead,BufNewFile *.mm setfiletype c
 
@@ -168,3 +171,4 @@ let g:clang_trailing_placeholder=1 " add trailing placeholder after function
 let g:clang_close_preview=1 " close preview window after completion
 let g:clang_snippets=1 " some magic after function ( or ,
 let g:clang_debug=0
+let g:clang_complete_macros = 1 " Complete C macros

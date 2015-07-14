@@ -25,3 +25,4 @@ export PYTHONPATH=${PYTHONPATH}:${HOME}/NYU/Dissertation/
 if [ -f ~/.bashrc ]; then
 	   source ~/.bashrc
 fi
+export WWISESDK=/Users/uri/Wwise/Wwise_v2014.1.5_build_5282/SDK
