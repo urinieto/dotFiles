@@ -53,9 +53,9 @@ au BufNewFile,BufRead *.tex set filetype=tex
 " set text file type
 au BufRead,BufNewFile *.txt setfiletype text
 
-" set XML file type
+" set Wwise XML file type
 au BufRead,BufNewFile *.wwu setfiletype xml
-
+"
 " set Objective-C file type
 au BufRead,BufNewFile *.mm setfiletype c
 
@@ -83,7 +83,9 @@ set guioptions-=r
 set guioptions-=L
 
 " Change default fontsize to fit MacBook Pro 13'
-set guifont=Monaco:h11
+" set guifont=Monaco:h5
+" set guifont=Courier\ New\ 11
+set guifont=Monospace\ 9
 
 " Don't select first Omni-completion option
 set completeopt=preview,menuone
@@ -171,4 +173,14 @@ let g:clang_trailing_placeholder=1 " add trailing placeholder after function
 let g:clang_close_preview=1 " close preview window after completion
 let g:clang_snippets=1 " some magic after function ( or ,
 let g:clang_debug=0
-let g:clang_complete_macros = 1 " Complete C macros
+
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
+command -nargs=0 -bar Update if &modified 
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-S> :<C-u>Update<CR>

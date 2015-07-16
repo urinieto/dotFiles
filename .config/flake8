@@ -1,5 +1,0 @@
-[flake8]
-ignore = E128,E265,E251
-max-line-length = 160
-exclude = tests/*
-max-complexity = 12

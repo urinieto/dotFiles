@@ -25,6 +25,7 @@ let g:Imap_UsePlaceHolders = 0
 set colorcolumn=0
 
 " For some reason this line makes the compilation of bibtex work
+let Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode -file-line-error-style $*'
 

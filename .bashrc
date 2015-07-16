@@ -193,6 +193,7 @@ powerprompt     # This is the default prompt -- might be slow.
 # Personnal Aliases
 #-------------------
 
+alias mvim='gvim'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -216,8 +217,8 @@ alias df='df -kTh'
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
+alias ls='ls -hF --color=auto'  # add colors for filetype recognition
 alias ll="ls -l"
-alias ls='ls -hF'  # add colors for filetype recognition
 alias la='ls -Al'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size, biggest last
@@ -458,3 +459,11 @@ function playmidi {
 # mode:shell-script
 # sh-shell:bash
 # End:
+
+# CUDA stuff
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+
+export PATH=${CUDA_HOME}/bin:${PATH}
+export PYTHONPATH=${PYTHONPATH}:${HOME}/Projects/caffe/python
+#export PYTHONPATH=${PYTHONPATH}:${HOME}/Projects

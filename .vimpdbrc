@@ -1,6 +1,0 @@
-[vimpdb]
-vim_client_script = mvim
-vim_server_script = mvim
-server_name = VIM
-port = 6666
-

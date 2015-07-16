@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/uri/NYU/Dissertation/MSAF/paper'
 let g:netrw_dirhist_2='/Users/uri/datasets/Segments/originalDatasets/Isophonics/The Beatles Annotations/seglab/The Beatles'
+let g:netrw_dirhist_3='/home/uri/Projects/msaf/msaf/algorithms/cc/dsp/segmentation'
+let g:netrw_dirhist_4='/home/uri/Projects/msaf/msaf/algorithms/cc'
+let g:netrw_dirhist_5='/home/uri/Projects/msaf/msaf/algorithms/fmc2d'
+let g:netrw_dirhist_6='/home/uri'
