@@ -1,0 +1,6 @@
+[global]
+device = gpu0
+floatX = float32
+
+[cuda]
+root = /usr/local/cuda-7.0
