@@ -71,3 +71,15 @@ Applications
 Google Drive
 .vim/undo/*
 *.pyc
+*.swp
+.ccache/
+.gervill/
+.lldb-history
+.lldb/
+.mysql_history
+.python_history
+SDKs/
+Wwise/
+eyetribe/
+nltk_data/
+notes/
