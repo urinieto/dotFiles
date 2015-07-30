@@ -193,6 +193,7 @@ powerprompt     # This is the default prompt -- might be slow.
 # Personnal Aliases
 #-------------------
 
+alias open='reattach-to-user-namespace open'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -453,6 +454,8 @@ function playmidi {
             return 1
     fi  
 }
+
+export EDITOR='vim'
 
 # Local Variables:
 # mode:shell-script
