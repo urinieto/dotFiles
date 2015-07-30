@@ -4,8 +4,10 @@ syntax enable
 set nofoldenable
 
 " Sweet colorscheme
-colorscheme codeschool
 set background=dark
+let g:solarized_termcolors = 256  " New line!!
+colorscheme solarized
+"colorscheme codeschool
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
@@ -176,3 +178,5 @@ let g:clang_complete_macros = 1 " Complete C macros
 
 " Control P plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
