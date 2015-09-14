@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/uri/NYU/Dissertation/MSAF/paper'
 let g:netrw_dirhist_2='/Users/uri/datasets/Segments/originalDatasets/Isophonics/The Beatles Annotations/seglab/The Beatles'
 let g:netrw_dirhist_3='/Users/uri/Projects/CAAST/caast_analyzer'
 let g:netrw_dirhist_4='/Users/uri/Projects/CAAST/caast_analyzer/caast_analyzer'
+let g:netrw_dirhist_5='/Users/uri/Downloads/fixed_test2/Interactive Music Hierarchy'
