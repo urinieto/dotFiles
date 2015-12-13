@@ -1,11 +1,36 @@
 " Oriol's titanic vim config file
+" VUNDLE POWER
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" My plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'klen/python-mode'
+Plugin 'scrooloose/syntastic'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " Enables highlight syntax
 syntax enable
 set nofoldenable
 
 " Sweet colorscheme
-colorscheme codeschool
+syntax enable
 set background=dark
+colorscheme solarized
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
@@ -58,11 +83,6 @@ au BufRead,BufNewFile *.wwu setfiletype xml
 "
 " set Objective-C file type
 au BufRead,BufNewFile *.mm setfiletype c
-
-" Pathogen load
-"filetype off " Makes syntax non-working on office box
-call pathogen#infect()
-call pathogen#helptags()
 
 " Set path to exuberant ctags
 "let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
@@ -186,3 +206,12 @@ command -nargs=0 -bar Update if &modified
 nnoremap <silent> <C-S> :<C-u>Update<CR>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll|pyc)$',
+	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+	\ }
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+
+" Use pep8 for Python linting
+let g:syntastic_python_checkers = ['pep8']
