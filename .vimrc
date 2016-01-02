@@ -219,3 +219,12 @@ let g:syntastic_python_checkers = ['pep8']
 set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='durant'
+
+" Change cursor
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+else
+    let &t_SI = "\e[5 q"
+    let &t_EI = "\e[2 q"
+endif
