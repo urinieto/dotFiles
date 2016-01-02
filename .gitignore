@@ -132,3 +132,20 @@ Applications
 Google Drive
 .vim/undo/*
 *.pyc
+.TelegramDesktop/
+.jupyter/
+.odbc.ini
+.ogg
+.ogg.0
+.selected_editor
+.sudo_as_admin_successful
+.telegram-cli/
+.tmux-session
+.tmux/
+.vim/spell/es.utf-8.spl
+.vim/spell/es.utf-8.sug
+Firefox-backup.tar
+PlayOnLinux's virtual drives
+firefox/
+p11-kit_0.23.1-3_i386.deb
+sources.list.d/
