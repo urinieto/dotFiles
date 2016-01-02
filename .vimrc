@@ -16,6 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -213,3 +214,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " Use pep8 for Python linting
 let g:syntastic_python_checkers = ['pep8']
+
+" Powerline (Vim-airline)
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline_theme='durant'
