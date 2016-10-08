@@ -20,9 +20,13 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 #PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
 #export PATH
 
-export PYTHONPATH=${PYTHONPATH}:${HOME}/NYU/Dissertation/
+export PYTHONPATH=${PYTHONPATH}:${HOME}/Projects/
 
 if [ -f ~/.bashrc ]; then
 	   source ~/.bashrc
 fi
 export WWISESDK=/Users/uri/Wwise/Wwise_v2014.1.5_build_5282/SDK
+PATH="/Library/TeX/Root/bin/x86_64-darwin:${PATH}"
+
+# added by Anaconda2 4.0.0 installer
+export PATH="/Users/uri/anaconda/bin:$PATH"
