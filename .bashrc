@@ -461,3 +461,6 @@ export EDITOR='vim'
 # mode:shell-script
 # sh-shell:bash
 # End:
+
+# For Python 3.5 linking with vim
+export LD_LIBRARY_PATH=/Users/$USER/anaconda3/lib
