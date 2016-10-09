@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'powerline/powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -181,7 +182,6 @@ let g:clang_close_preview=1 " close preview window after completion
 let g:clang_snippets=1 " some magic after function ( or ,
 let g:clang_debug=0
 let g:clang_complete_macros = 1 " Complete C macros
-
 
 " Control P plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
