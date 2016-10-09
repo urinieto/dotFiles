@@ -461,3 +461,8 @@ export EDITOR='vim'
 # mode:shell-script
 # sh-shell:bash
 # End:
+
+# Powerline
+if [ -f ~/anaconda3/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    source ~/anaconda3/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+fi

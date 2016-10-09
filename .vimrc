@@ -10,7 +10,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'powerline/powerline'
+Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -199,3 +201,8 @@ endif
 
 " Cleanup search highlight when pressing esc
 "nnoremap <esc> :noh<return><esc>
+
+" Vim-airline stuff
+set laststatus=2 " Always show statusline
+let g:airline_powerline_fonts=1
+let g:airline_theme='durant'
