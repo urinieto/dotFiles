@@ -10,9 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -76,16 +78,6 @@ au BufRead,BufNewFile *.wwu setfiletype xml
 " set Objective-C file type
 au BufRead,BufNewFile *.mm setfiletype c
 
-" Set path to exuberant ctags
-"let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'
-
-" Omnicompletion on
-"set omnifunc=syntaxcomplete#Complete
-
-" Open the Tag List by default
-"autocmd VimEnter * TlistOpen
-"autocmd VimEnter * wincmd p
-
 " Switch between files in buffer
 nnoremap <C-Tab> :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
@@ -120,13 +112,6 @@ autocmd BufEnter * silent! lcd %:p:h
 " Enable folding
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
-
-" Save foldings
-"autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* silent loadview
-
-" No folding when opening a file (99 = no closed folds)
-"set foldlevelstart=99
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many levels of undo
@@ -167,24 +152,6 @@ set undoreload=10000        " number of lines to save for undo
 "nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "let g:ycm_custom_enable = 1
 
-" Setup Clang Library
-let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
-if isdirectory(s:clang_library_path)
-    let g:clang_library_path=s:clang_library_path
-endif
-
-let g:clang_use_library=1
-let g:clang_auto_select=0 "select first entry in popup menu but don't insert in code
-let g:clang_complete_auto=1 "auto complete after -> . and ::
-let g:clang_complete_copen=0 "open quick fix on error
-let g:clang_complete_hl_errors=1 " highlight errors and warnings
-let g:clang_periodic_quickfix=1 " update quickfix periodically
-let g:clang_trailing_placeholder=1 " add trailing placeholder after function
-let g:clang_close_preview=1 " close preview window after completion
-let g:clang_snippets=1 " some magic after function ( or ,
-let g:clang_debug=0
-let g:clang_complete_macros = 1 " Complete C macros
-
 " Control P plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_working_path_mode = 'ra'
@@ -198,9 +165,6 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-
-" Cleanup search highlight when pressing esc
-"nnoremap <esc> :noh<return><esc>
 
 " Vim-airline stuff
 set laststatus=2 " Always show statusline
