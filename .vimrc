@@ -9,6 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -22,7 +23,6 @@ set nofoldenable
 set background=dark
 let g:solarized_termcolors = 256  " New line!!
 colorscheme solarized
-"colorscheme codeschool
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
