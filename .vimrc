@@ -60,11 +60,6 @@ endif
 " Infere the case-sensitivity
 set infercase
 
-" Need to set this flag on in order to have many cool features on
-set nocompatible
-
-filetype plugin on
-
 " Let vim know that cls files are LaTeX classes
 au BufNewFile,BufRead *.cls set filetype=tex
 au BufNewFile,BufRead *.tex set filetype=tex
