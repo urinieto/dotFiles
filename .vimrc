@@ -1,4 +1,19 @@
-" Oriol's titanic vim config file
+" Oriol's vim config file for OSX
+set nocompatible              " enter the current century
+filetype off                  " required for vundle
+
+" Vundle stuff
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 " Enables highlight syntax
 syntax enable
 set nofoldenable
@@ -48,8 +63,6 @@ set infercase
 " Need to set this flag on in order to have many cool features on
 set nocompatible
 
-" Indent properly based on the current file
-filetype indent plugin on
 filetype plugin on
 
 " Let vim know that cls files are LaTeX classes
@@ -64,11 +77,6 @@ au BufRead,BufNewFile *.wwu setfiletype xml
 
 " set Objective-C file type
 au BufRead,BufNewFile *.mm setfiletype c
-
-" Pathogen load
-"filetype off " Makes syntax non-working on office box
-call pathogen#infect()
-call pathogen#helptags()
 
 " Set path to exuberant ctags
 "let Tlist_Ctags_Cmd='/usr/bin/ctags-exu'

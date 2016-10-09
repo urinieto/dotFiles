@@ -30,3 +30,6 @@ PATH="/Library/TeX/Root/bin/x86_64-darwin:${PATH}"
 
 # added by Anaconda2 4.0.0 installer
 export PATH="/Users/uri/anaconda/bin:$PATH"
+
+# added by Anaconda3 4.2.0 installer
+export PATH="/Users/uri/anaconda3/bin:$PATH"
