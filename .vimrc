@@ -15,7 +15,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -185,4 +187,18 @@ let g:syntastic_python_flake8_args = '--ignore=E116,E114'
 let g:syntastic_loc_list_height = 3
 
 " YouCompleteMe
-let g:ycm_python_binary_path = '/Users/uri/anaconda3/bin/python'
+"let g:ycm_python_binary_path = '/Users/uri/anaconda3/bin/python'
+"let g:ycm_python_binary_path = '/Users/uri/anaconda/bin/python'
+"let g:ycm_python_binary_path = 'python'
+"let g:ycm_key_invoke_completion = '<C-b>'
+"let g:ycm_server_keep_logfiles = 1
+
+" Neocomplete
+"let g:acp_enableAtStartup = 0
+"" Use neocomplete.
+"let g:neocomplete#enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"let g:neocomplete#data_directory = '~/.vim/tmp/neocomplete'
+"" Enable omni completion.
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete

@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 #./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp=dynamic --with-python-config-dir=/Users/$USER/anaconda/lib/python2.7/config --enable-python3interp=dynamic --with-python3-config-dir=/Users/$USER/anaconda3/lib/python3.5/config-3.5m --enable-perlinterp --enable-luainterp --enable-gui=gtk2 --enable-cscope --prefix=/usr/local --with-lua-prefix=/usr/local
-./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-python3interp --enable-perlinterp --enable-luainterp --enable-gui=gtk2 --enable-cscope --prefix=/usr/local --with-lua-prefix=/usr/local
+#./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-python3interp --enable-perlinterp --enable-luainterp --enable-gui=gtk2 --enable-cscope --prefix=/usr/local --with-lua-prefix=/usr/local
+./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp=dynamic --with-python-config-dir=/Users/$USER/anaconda/lib/python2.7/config --enable-python3interp=dynamic --enable-perlinterp --enable-luainterp --enable-gui=gtk2 --enable-cscope --prefix=/usr/local --with-lua-prefix=/usr/local

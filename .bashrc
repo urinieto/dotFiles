@@ -463,4 +463,4 @@ export EDITOR='vim'
 # End:
 
 # For Python 3.5 linking with vim
-export LD_LIBRARY_PATH=/Users/$USER/anaconda3/lib
+export LD_LIBRARY_PATH=/Users/$USER/anaconda3/lib:/Users/$USER/anaconda/lib
