@@ -1,4 +1,4 @@
-" Oriol's vim config file for OSX
+" Oriol's vim config file for Linux
 set nocompatible              " enter the current century
 filetype off                  " required for vundle
 
@@ -40,10 +40,6 @@ set number
 
 "" Use mouse (only for resizing uri!)
 set mouse=a
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
 
 " Set the focus to the correct screen (ok, no more mouse thingies)
 set mousefocus
@@ -75,12 +71,12 @@ au BufNewFile,BufRead *.tex set filetype=tex
 " set text file type
 au BufRead,BufNewFile *.txt setfiletype text
 
-" set XML file type
+" set Wwise XML file type
 au BufRead,BufNewFile *.wwu setfiletype xml
-
+"
 " set Objective-C file type
 au BufRead,BufNewFile *.mm setfiletype c
-
+"
 " Switch between files in buffer
 nnoremap <C-Tab> :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
@@ -90,7 +86,9 @@ set guioptions-=r
 set guioptions-=L
 
 " Change default fontsize to fit MacBook Pro 13'
-set guifont=Monaco:h11
+" set guifont=Monaco:h5
+" set guifont=Courier\ New\ 11
+set guifont=Monospace\ 9
 
 " Don't select first Omni-completion option
 set completeopt=preview,menuone
@@ -155,22 +153,19 @@ set undoreload=10000        " number of lines to save for undo
 "nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "let g:ycm_custom_enable = 1
 
-" Control P plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
+command -nargs=0 -bar Update if &modified 
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-S> :<C-u>Update<CR>
 
-" Change cursor
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-" Vim-airline stuff
-set laststatus=2 " Always show statusline
+" Powerline (Vim-airline)
+set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='durant'
 
@@ -186,19 +181,11 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--ignore=E116,E114'
 let g:syntastic_loc_list_height = 3
 
-" YouCompleteMe
-"let g:ycm_python_binary_path = '/Users/uri/anaconda3/bin/python'
-"let g:ycm_python_binary_path = '/Users/uri/anaconda/bin/python'
-"let g:ycm_python_binary_path = 'python'
-"let g:ycm_key_invoke_completion = '<C-b>'
-"let g:ycm_server_keep_logfiles = 1
-
-" Neocomplete
-"let g:acp_enableAtStartup = 0
-"" Use neocomplete.
-"let g:neocomplete#enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplete#enable_smart_case = 1
-"let g:neocomplete#data_directory = '~/.vim/tmp/neocomplete'
-"" Enable omni completion.
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" Change cursor
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+else
+    let &t_SI = "\e[5 q"
+    let &t_EI = "\e[2 q"
+endif
