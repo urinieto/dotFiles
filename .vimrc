@@ -29,7 +29,6 @@ set nofoldenable
 
 " Sweet colorscheme
 set background=dark
-let g:solarized_termcolors = 256  " New line!!
 colorscheme solarized
 
 " Set utf8 as standard encoding and en_US as the standard language
