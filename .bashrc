@@ -475,5 +475,11 @@ export EDITOR=vim
 # added by Anaconda2 4.2.0 installer
 export PATH="/home/uri/anaconda2/bin:$PATH"
 
+# added by Anaconda3 4.3.0 installer
+export PATH="/home/uri/anaconda3/bin:$PATH"
+
+# For vim to find it
+export LD_LIBRARY_PATH=${HOME}/anaconda3/lib:${LD_LIBRARY_PATH}
+
 # Clean up PATH in case there are duplicates (tmux might do this...)
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
