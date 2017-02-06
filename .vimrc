@@ -14,10 +14,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Shougo/neocomplete.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -168,18 +167,6 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 let g:airline_theme='durant'
 
-" Syntastic stuff
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--ignore=E116,E114'
-let g:syntastic_loc_list_height = 3
-
 " Change cursor
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
@@ -190,3 +177,8 @@ else
 endif
 
 nnoremap <Leader>b Oimport pdb; pdb.set_trace()<Esc>
+
+" For Ale syntax
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
