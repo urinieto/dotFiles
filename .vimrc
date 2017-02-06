@@ -188,3 +188,5 @@ else
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
 endif
+
+nnoremap <Leader>b Oimport pdb; pdb.set_trace()<Esc>
