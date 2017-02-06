@@ -474,3 +474,6 @@ export EDITOR=vim
 
 # added by Anaconda2 4.2.0 installer
 export PATH="/home/uri/anaconda2/bin:$PATH"
+
+# Clean up PATH in case there are duplicates (tmux might do this...)
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
