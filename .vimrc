@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'w0rp/ale'
+Plugin 'fisadev/vim-isort'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
