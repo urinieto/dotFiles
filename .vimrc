@@ -177,7 +177,7 @@ else
     let &t_EI = "\e[2 q"
 endif
 
-nnoremap <Leader>b Oimport pdb; pdb.set_trace()<Esc>
+nnoremap <Leader>b Oimport ipdb; ipdb.set_trace()<Esc>
 
 " For Ale syntax
 let g:ale_linters = {
