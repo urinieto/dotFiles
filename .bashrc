@@ -32,7 +32,7 @@
 
 
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc   # --> Read /etc/bashrc, if present.
+	. /etc/bashrc   # --> Read /etc/bashrc, if present.
 fi
 
 #-------------------------------------------------------------
@@ -78,29 +78,6 @@ export DISPLAY
 # Some settings
 #-------------------------------------------------------------
 
-ulimit -S -c 0          # Don't want any coredumps.
-set -o notify
-# set -o noclobber
-# set -o ignoreeof
-# set -o nounset
-#set -o xtrace          # Useful for debuging.
-
-# Enable options:
-shopt -s cdspell
-shopt -s cdable_vars
-shopt -s checkhash
-shopt -s checkwinsize
-# shopt -s sourcepath
-# shopt -s no_empty_cmd_completion
-shopt -s cmdhist
-# shopt -s histappend histreedit histverify
-shopt -s extglob        # Necessary for programmable completion.
-
-# Disable options:
-shopt -u mailwarn
-unset MAILCHECK         # Don't want my shell to warn me of incoming mail.
-
-
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 export HISTTIMEFORMAT="%H:%M > "
 export HISTIGNORE="&:bg:fg:ll:h"
@@ -127,15 +104,13 @@ BLUE='\033[34m'
 cyan='\033[36m'
 CYAN='\033[36m'
 NC='\033[0m'              # No Color
-# --> Nice. Has the same effect as using "ansi.sys" in DOS.
-
 
 # Looks best on a terminal with black background.....
 echo -e "${CYAN}This is BASH ${RED}${BASH_VERSION%.*}\
 ${CYAN} - DISPLAY on ${RED}$DISPLAY${NC}"
 date
 if [ -x /usr/local/bin/fortune ]; then
-    /usr/local/bin/fortune -s     # Makes our day a bit more fun.... :-)
+	/usr/local/bin/fortune -s     # Makes our day a bit more fun.... :-)
 fi
 
 function _exit()        # Function to run upon exit of shell.
@@ -144,11 +119,9 @@ function _exit()        # Function to run upon exit of shell.
 }
 trap _exit EXIT
 
-
 #-------------------------------------------------------------
 # Shell Prompt
 #-------------------------------------------------------------
-
 
 if [[ "${DISPLAY%%:0*}" != "" ]]; then  
     HILIT=${red}   # remote machine: prompt will be partly red
@@ -198,21 +171,10 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 # -> Prevents accidentally clobbering files.
-alias mkdir='mkdir -p'
 
-alias h='history'
-alias j='jobs -l'
-alias which='type -a'
 alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
-alias print='/usr/bin/lp -o nobanner -d $LPDEST'
-            # Assumes LPDEST is defined (default printer)
-alias pjet='enscript -h -G -fCourier9 -d $LPDEST'
-            # Pretty-print using enscript
-
-alias du='du -kh'       # Makes a more readable output.
-alias df='df -kTh'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
@@ -220,18 +182,6 @@ alias df='df -kTh'
 alias ll="ls -l"
 alias ls='ls -hF'  # add colors for filetype recognition
 alias la='ls -Al'          # show hidden files
-alias lx='ls -lXB'         # sort by extension
-alias lk='ls -lSr'         # sort by size, biggest last
-alias lc='ls -ltcr'        # sort by and show change time, most recent last
-alias lu='ls -ltur'        # sort by and show access time, most recent last
-alias lt='ls -ltr'         # sort by date, most recent last
-alias lm='ls -al |more'    # pipe through 'more'
-alias lr='ls -lR'          # recursive ls
-alias tree='tree -Csu'     # nice alternative to 'recursive ls'
-
-# If your version of 'ls' doesn't support --group-directories-first try this:
-# function ll(){ ls -l "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| \
-#                egrep -v "^d|total "; }
 
 
 #-------------------------------------------------------------
@@ -246,11 +196,9 @@ export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
 export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
 :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 
-
 #-------------------------------------------------------------
 # File & string-related functions:
 #-------------------------------------------------------------
-
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
@@ -273,7 +221,6 @@ function lowercase()  # move filenames to lowercase
         fi
     done
 }
-
 
 function swap()  # Swap 2 filenames around, if they exist
 {                #(from Uzi's bashrc).
@@ -314,10 +261,8 @@ function extract()      # Handy Extract Program.
 # Process/system related functions:
 #-------------------------------------------------------------
 
-
 function my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 function pp() { my_ps f | awk '!/awk/ && $0~var' var=${1:-".*"} ; }
-
 
 function killps()                 # Kill by process name.
 {
@@ -343,9 +288,6 @@ function ask()          # See 'killps' for example of use.
         *) return 1 ;;
     esac
 }
-
-
-
 
 #=========================================================================
 # PROGRAMMABLE COMPLETION - ONLY SINCE BASH-2.04
@@ -390,7 +332,6 @@ complete -f -o default -X '*.+(bz2|BZ2)'  bzip2
 complete -f -o default -X '!*.+(bz2|BZ2)' bunzip2
 complete -f -o default -X '!*.+(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
 
-
 # Documents - Postscript,pdf,dvi.....
 complete -f -o default -X '!*.+(ps|PS)'  gs ghostview ps2pdf ps2ascii
 complete -f -o default -X '!*.+(dvi|DVI)' dvips dvipdf xdvi dviselect dvitype
@@ -416,10 +357,7 @@ complete -f -o default -X \
 ps|pes|fli|viv|rm|ram|yuv|mov|MOV|qt|QT|wmv|mp3|MP3|ogg|OGG|\
 ogm|OGM|mp4|MP4|wav|WAV|asx|ASX)' xine
 
-
-
 complete -f -o default -X '!*.pl'  perl perl5
-
 
 # This is a 'universal' completion function - it works when commands have
 # a so-called 'long options' mode , ie: 'ls --all' instead of 'ls -a'
@@ -431,36 +369,4 @@ complete -f -o default -X '!*.pl'  perl perl5
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
 
-# Playmidi using fluidsynth
-function playmidi {
-
-    SOUNDFONT='/usr/local/Cellar/fluid-synth/1.1.6/generaluser.v.1.44.sf2'
-
-    if [ -e "$SOUNDFONT" ]
-    then 
-
-        for i in "$@"
-        do 
-            if [ -e "$i" ]
-            then
-                (fluidsynth -i "$SOUNDFONT" "$i"  2>&1) >/dev/null
-            else
-                echo "[playmidi]: cannot find file at $i"   
-                return 1
-            fi  
-        done 
-    else
-            echo "[playmidi]: SOUNDFONT file not found at $SOUNDFONT"
-            return 1
-    fi  
-}
-
 export EDITOR='vim'
-
-# Local Variables:
-# mode:shell-script
-# sh-shell:bash
-# End:
-
-# For Python 3.5 linking with vim
-export LD_LIBRARY_PATH=/Users/$USER/anaconda3/lib:/Users/$USER/anaconda/lib
